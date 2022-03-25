@@ -4,11 +4,11 @@ public class City {
 
     private Long city_id;
     private String city_name;
-    private String mayor_name;
+    private int mayorId;
 
-    public City(String city_name, String mayor_name) {
+    public City(String city_name, int mayorId) {
         this.city_name = city_name;
-        this.mayor_name = mayor_name;
+        this.mayorId = mayorId;
     }
 
     public City() {
@@ -30,12 +30,12 @@ public class City {
         this.city_name = city_name;
     }
 
-    public String getMayor_name() {
-        return mayor_name;
+    public int getMayorId() {
+        return mayorId;
     }
 
-    public void setMayor_name(String mayor_name) {
-        this.mayor_name = mayor_name;
+    public void setMayorId(int mayorId) {
+        this.mayorId = mayorId;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class City {
         return "City{" +
                 "city_id=" + city_id +
                 ", city_name='" + city_name + '\'' +
-                ", mayor_name='" + mayor_name + '\'' +
+                ", mayorId=" + mayorId +
                 '}';
     }
 }

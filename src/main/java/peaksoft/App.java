@@ -18,11 +18,11 @@ public class App {
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
 
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-* City class *-*-*-*-*-*-*-*-*-*-*-*-");
-        TableCity.saveCities("Moscow", "Bahtyiar Surantaev");
-        TableCity.saveCities("Bishkek", "Ulukmyrza Talipov");
-        TableCity.saveCities("Washington", "Mirbek Abylov");
-        TableCity.saveCities("London", "Shergazy Kalmyrza uulu");
-        TableCity.saveCities("Brasilia", "Bekmurat Satyboldiev");
+        TableCity.saveCities("Moscow", 1);
+        TableCity.saveCities("Bishkek", 2);
+        TableCity.saveCities("Washington", 3);
+        TableCity.saveCities("London", 4);
+        TableCity.saveCities("Brasilia", 5);
 
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-* Country class *-*-*-*-*-*-*-*-*-*-*-");
         TableCountry.saveCountries("Russia", 14515295, 1);

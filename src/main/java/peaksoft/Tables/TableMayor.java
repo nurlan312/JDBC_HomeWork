@@ -25,24 +25,24 @@ public class TableMayor {
         }
     }
 
-    public static void saveMayors(String mayor_surname, int mayor_age, int cityId) {
-        String saveSQL = "insert into Mayors(mayor_surname, mayor_age, cityId) values(?, ?, ?);";
+    public static void saveMayors(String mayor_name, int mayor_age, int cityId) {
+        String saveSQL = "insert into Mayors(mayor_name, mayor_age, cityId) values(?, ?, ?);";
         try (Connection connection = JDBCConfig.JDBCConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(saveSQL);
-            preparedStatement.setString(1, mayor_surname);
+            preparedStatement.setString(1, mayor_name);
             preparedStatement.setInt(2, mayor_age);
             preparedStatement.setInt(3, cityId);
             preparedStatement.executeUpdate();
             preparedStatement.close();
-            System.out.println("Added in table Mayors success: " + mayor_surname);
+            System.out.println("Added in table Mayors success: " + mayor_name);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
     public static List<Mayor> getAllMayors() {
-        String getAllSQL = "select city_id, city_name, mayor_id, " +
-                "       mayor_surname, mayor_age, cityid " +
+        String getAllSQL = "select city_id, city_name, mayor_name, mayor_id, " +
+                "       mayor_name, mayor_age, cityid " +
                 "from mayors inner join cities c on c.city_id = mayors.cityid;";
         List<Mayor> mayorList = new ArrayList<>();
         try (Connection connection = JDBCConfig.JDBCConnection()) {
@@ -52,7 +52,7 @@ public class TableMayor {
             while (resultSet.next()) {
                 Mayor mayor = new Mayor();
                 mayor.setMayor_id(resultSet.getLong("mayor_id"));
-                mayor.setMayor_name(resultSet.getString("mayor_surname"));
+                mayor.setMayor_name(resultSet.getString("mayor_name"));
                 mayor.setMayor_age(resultSet.getInt("mayor_age"));
                 mayor.setCityId(resultSet.getInt("cityId"));
                 mayorList.add(mayor);
